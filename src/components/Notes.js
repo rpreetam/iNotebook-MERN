@@ -3,12 +3,10 @@ import noteContext from "../context-notes/noteContext"
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
 
-
 const Notes = (props ) => {
     const context = useContext(noteContext);
     const {notes , getNotes, editNote} = context;
     useEffect(()=>{getNotes()
-        console.log('notes',notes);
     // eslint-disable-next-line
  },[])
  const ref = useRef(null)
@@ -18,7 +16,7 @@ const Notes = (props ) => {
  const updateNote = (currentNote) =>{
     ref.current.click();
     setNote({id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag:currentNote.tag})
-
+    
  }
 
  const handleClick = (e) => {
@@ -36,7 +34,7 @@ const Notes = (props ) => {
     return (
         <>
             <AddNote showAlert= {props.showAlert} />
-            <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exam pleModal">
+            <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
             </button> 
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
