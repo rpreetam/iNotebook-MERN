@@ -6,6 +6,7 @@ const Login = (props) => {
     let history = useHistory();
 
     const handleSubmit = async (e) => {
+        
         e.preventDefault();
         const response = await fetch("http://localhost:5000/api/auth/login",{
             method: "post",
@@ -15,7 +16,6 @@ const Login = (props) => {
             body: JSON.stringify({email: credentials.email, password: credentials.password})
         })
         const json = await response.json()
-        console.log("hi",json)
         if (json.success){
             // save the auth token and redirect
             localStorage.setItem('token', json.authtoken);

@@ -5,11 +5,11 @@ import Navbar from './components/Navbar';
 import { Home } from './components/Home';
 import About from './components/About';
 import NoteState from './context-notes/NoteState';
+import UserState from "./context-user/UserState";
 import { Alert } from './components/Alert';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import { useState } from "react";
-
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -21,6 +21,7 @@ function App() {
   }
   return (
     <>
+    <UserState>
     <NoteState>
       <Router>
         <Navbar/>
@@ -42,8 +43,9 @@ function App() {
           </Switch>
 
         </div>
-      </Router>
+      </Router> 
     </NoteState>
+    </UserState>
     </>
   );
 }
