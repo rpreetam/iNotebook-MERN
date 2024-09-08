@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const UserState = (props) => {
     const [user,setUser]= useState(null);
     const authToken = localStorage.getItem('token')
-    const host = "http://localhost:5000"
+    const host = process.env.REACT_APP_HOST
 
     
 

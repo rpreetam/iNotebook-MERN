@@ -1,5 +1,6 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
-const mongoURI = "mongodb://0.0.0.0:27017/"
+const mongoURI = process.env.MURL
 const connectToMongo = () => {
     mongoose.connect(mongoURI);
 }

@@ -2,7 +2,7 @@ import NoteContext from "./noteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-  const host = "http://localhost:5000"
+  const host = process.env.REACT_APP_HOST
   const notesInitial = []
   const [notes, setNotes] = useState(notesInitial)
   const authToken = localStorage.getItem('token')
@@ -48,7 +48,7 @@ const NoteState = (props) => {
         "auth-token": authToken
       }
     });
-    const json = response.json(); 
+    const json = response.json();
     const newNotes = notes.filter((note) => { return note._id !== id })
     setNotes(newNotes)
   }
