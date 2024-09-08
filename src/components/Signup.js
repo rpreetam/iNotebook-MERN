@@ -2,14 +2,13 @@ import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom';
 
 const Signup = (props) => {
-
+    const host = process.env.REACT_APP_HOST
     const [credentials, setCredentials]= useState({name: '', email: '', password:'', cpassword:''});
     let history = useHistory();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const {name, email, password}= credentials;
-        const response = await fetch("http://localhost:5000/api/auth/createuser",{
+        const response = await fetch(`${host}/api/auth/createuser`,{
             method: "post",
             headers: {
                 'Content-Type': 'application/json'
